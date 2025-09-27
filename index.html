@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omegafamisu Peptide Helper by Kushhzi</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN for interactive graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Omegafamisu Peptide Helper by Kushhzi</h1>
+    <nav>
+      <button id="nav-dashboard">Dashboard</button>
+      <button id="nav-calculator">Calculator</button>
+      <button id="nav-logout" class="hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Login Section -->
+    <section id="login-section">
+      <h2>Log in to start tracking</h2>
+      <form id="login-form">
+        <label for="username">Name</label>
+        <input type="text" id="username" name="username" placeholder="e.g. Greg" required />
+        <button type="submit">Log In</button>
+        <p class="small">If this is a new name we'll create a new schema for you automatically.</p>
+      </form>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard-section" class="hidden">
+      <h2>Progress Dashboard</h2>
+      <div>
+        <label for="user-select">Select user: </label>
+        <select id="user-select"></select>
+        <button id="add-user-btn">Add User</button>
+      </div>
+      <div id="table-container">
+        <table id="data-table">
+          <!-- Table headings and rows will be generated dynamically -->
+        </table>
+      </div>
+      <div>
+        <canvas id="weight-chart"></canvas>
+      </div>
+      <div>
+        <canvas id="dose-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator-section" class="hidden">
+      <h2>Peptide Calculator</h2>
+      <div class="calculator-group">
+        <label for="calc-vial">Peptide vial quantity (mg)</label>
+        <select id="calc-vial">
+          <option value="5">5 mg</option>
+          <option value="10">10 mg</option>
+          <option value="15">15 mg</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="number" id="calc-vial-other" placeholder="Enter mg" class="hidden" min="0.1" step="0.1" />
+      </div>
+      <div class="calculator-group">
+        <label for="calc-water">Bacteriostatic water added (ml)</label>
+        <select id="calc-water">
+          <option value="1">1 ml</option>
+          <option value="2">2 ml</option>
+          <option value="3">3 ml</option>
+          <option value="5">5 ml</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="number" id="calc-water-other" placeholder="Enter ml" class="hidden" min="0.1" step="0.1" />
+      </div>
+      <div class="calculator-group">
+        <label for="calc-syringe">Syringe volume</label>
+        <select id="calc-syringe">
+          <option value="0.3">0.3 ml (30 IU)</option>
+          <option value="0.5">0.5 ml (50 IU)</option>
+          <option value="1.0">1.0 ml (100 IU)</option>
+        </select>
+      </div>
+      <div class="calculator-group">
+        <label for="calc-dose">Desired dose (mcg)</label>
+        <input type="number" id="calc-dose" placeholder="e.g. 200" min="0.1" step="0.1" />
+      </div>
+      <div class="calculator-group">
+        <button id="calc-btn">Calculate</button>
+      </div>
+      <div id="calculator-result"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
